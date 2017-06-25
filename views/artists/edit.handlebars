@@ -1,0 +1,28 @@
+<div class="content">
+  <h2>Edit a new artist:</h2>
+  <form class="form" action="/artist/new" method="POST">
+      <div class="form__item">
+        <h4 class="form__title"> Name: </h4>
+        <input type="text" name="name" value="{{name}}">
+      </div>
+      <div class="form__item">
+        <h4 class="form__title">Image Url:</h4>
+        <input type="url" name="url" value="{{image}}">
+      </div>
+      <div class="form__item">
+        <h4 class="form__title"> Summary: </h4>
+        <textarea name="summary" value="{{summary}}" rows="8" cols="40"></textarea>
+      </div>
+      <div class="form__item">
+        <h4 class="form__title"> Ablums: </h4>
+        <textarea name="albums" value= "{{albums}}" rows="8" cols="40"></textarea>
+      </div>
+      <div class="form__item">
+        <h4 class="form__title"> Hit Songs: </h4>
+        <textarea name="songs" value= "{{songs}}" rows="8" cols="40"></textarea>
+      </div>
+      <div class="form__item">
+        <button type="submit" name="submit">Submit</button>
+      </div>
+  </form>
+</div>

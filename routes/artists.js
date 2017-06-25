@@ -29,4 +29,37 @@ artistsRouter.get('/:id', (req, res) => {
 	})
 })
 
+artistsRouter.post('/:id', ( req, res ) => {
+
+  Artist.findById( req.params.id, ( err, artist ) => {
+
+    Artist.comments.push( req.body )
+    Artist.save()
+
+    res.render( 'posts/show', {artists} )
+
+  })
+
+})
+
+artistsRouter.get('/:id/edit', (req, res) => {
+	Artist.findOne({ '_id': req.params.id}, (err, artists) => {
+		res.render('artists/edit', artists)
+	})
+})
+
+artistsRouter.post('/:id/edit', function(req, res) {
+	// console.log('HERE!!!!!!!!!!!!!!!!!!!!')
+	Artist.findOne({ '_id': req.params.id}, (err, artists) => {
+		image = req.body.url
+		name = req.body.name
+		genre = req.body.genre
+		summary = req.body.summary
+		albums = req.body.albums
+		songs = req.body.songs
+	})
+	Artist.save()
+	res.redirect('/')
+})
+
 module.exports = artistsRouter
