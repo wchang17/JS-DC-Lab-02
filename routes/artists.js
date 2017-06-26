@@ -12,7 +12,7 @@ artistsRouter.get('/new', (req, res) =>{
 
 artistsRouter.post('/new', function(req, res) {
 	// console.log('HERE!!!!!!!!!!!!!!!!!!!!')
-	const newArtist = new Artist({
+	const artist = new Artist({
 		image: req.body.url,
 		name: req.body.name,
 		genre: req.body.genre,
@@ -20,7 +20,7 @@ artistsRouter.post('/new', function(req, res) {
 		albums: req.body.albums,
 		songs: req.body.songs
 	})
-	newArtist.save()
+	artist.save()
 	res.redirect('/')
 })
 
@@ -65,7 +65,7 @@ artistsRouter.post('/:id/edit', function(req, res) {
 		artist.albums = req.body.albums
 		artist.songs = req.body.songs
 	})
-	Artist.save()
+	artist.save()
 	res.redirect('/')
 })
 
