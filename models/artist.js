@@ -5,10 +5,9 @@ const artistSchema = new Schema({
 name: String,
 summary: String,
 genre: String,
-songs: Array,
-albums: Array,
-image: String,
-comments: Array
+songs: String,
+albums: String,
+image: String
 })
 
 const Artist = mongoose.model( 'Artist', artistSchema )

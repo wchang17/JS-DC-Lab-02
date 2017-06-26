@@ -58,15 +58,15 @@ artistsRouter.get('/:id/edit', (req, res) => {
 artistsRouter.post('/:id/edit', function(req, res) {
 	// console.log('HERE!!!!!!!!!!!!!!!!!!!!')
 	Artist.findOne({ '_id': req.params.id}, (err, artists) => {
-		Artist.image = req.body.url
-		Artist.name = req.body.name
-		Artist.genre = req.body.genre
-		Artist.summary = req.body.summary
-		Artist.albums = req.body.albums
-		Artist.songs = req.body.songs
+		image = req.body.url
+		name = req.body.name
+		genre = req.body.genre
+		summary = req.body.summary
+		albums = req.body.albums
+		songs = req.body.songs
 	})
-	Artist.save()
-	res.redirect('/:id')
+	Artist.update()
+	res.redirect('/')
 })
 
 module.exports = artistsRouter
