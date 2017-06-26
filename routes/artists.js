@@ -38,7 +38,7 @@ artistsRouter.post('/:id', ( req, res ) => {
 
     const newComment = new Comment({
     	author: req.body.author,
-    	comment: req.body.comment,
+    	content: req.body.comment,
     	date: req.body.date
     })
     newComment.save()
@@ -58,14 +58,14 @@ artistsRouter.get('/:id/edit', (req, res) => {
 artistsRouter.post('/:id/edit', function(req, res) {
 	// console.log('HERE!!!!!!!!!!!!!!!!!!!!')
 	Artist.findOne({ '_id': req.params.id}, (err, artists) => {
-		image = req.body.url
-		name = req.body.name
-		genre = req.body.genre
-		summary = req.body.summary
-		albums = req.body.albums
-		songs = req.body.songs
+		artist.image = req.body.url
+		artist.name = req.body.name
+		artist.genre = req.body.genre
+		artist.summary = req.body.summary
+		artist.albums = req.body.albums
+		artist.songs = req.body.songs
 	})
-	Artist.update()
+	Artist.save()
 	res.redirect('/')
 })
 
